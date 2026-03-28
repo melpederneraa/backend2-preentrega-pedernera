@@ -1,0 +1,17 @@
+{
+  "name": "backend-ecommerce-final",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.22.1",
+    "express-handlebars": "^8.0.3",
+    "mongoose": "^8.18.0",
+    "mongoose-paginate-v2": "^1.9.1",
+    "socket.io": "^4.8.1"
+  }
+}

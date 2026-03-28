@@ -1,0 +1,23 @@
+<section>
+  <h1>Carrito {{cart._id}}</h1>
+
+  {{#if hasProducts}}
+    <div class="grid">
+      {{#each cart.products}}
+        <article class="card">
+          <h2>{{this.product.title}}</h2>
+          <p><strong>Categoría:</strong> {{this.product.category}}</p>
+          <p><strong>Precio unitario:</strong> ${{this.product.price}}</p>
+          <p><strong>Cantidad:</strong> {{this.quantity}}</p>
+          <p><strong>Subtotal:</strong> ${{multiply this.product.price this.quantity}}</p>
+        </article>
+      {{/each}}
+    </div>
+  {{else}}
+    <p>El carrito está vacío.</p>
+  {{/if}}
+
+  <div class="actions">
+    <a class="button secondary" href="/products?cid={{cart._id}}">Seguir comprando</a>
+  </div>
+</section>

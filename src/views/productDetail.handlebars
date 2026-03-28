@@ -1,0 +1,17 @@
+<section class="detail">
+  <h1>{{product.title}}</h1>
+  <p><strong>Descripción:</strong> {{product.description}}</p>
+  <p><strong>Código:</strong> {{product.code}}</p>
+  <p><strong>Categoría:</strong> {{product.category}}</p>
+  <p><strong>Precio:</strong> ${{product.price}}</p>
+  <p><strong>Stock:</strong> {{product.stock}}</p>
+  <p><strong>Disponible:</strong> {{#if product.status}}Sí{{else}}No{{/if}}</p>
+
+  <div class="actions">
+    <button class="button add-to-cart" data-cart-id="{{cartId}}" data-product-id="{{product._id}}">Agregar al carrito</button>
+    <a class="button secondary" href="/carts/{{cartId}}">Ver carrito</a>
+    <a class="button secondary" href="/products?cid={{cartId}}">Volver</a>
+  </div>
+</section>
+
+<script src="/js/products.js"></script>
