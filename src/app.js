@@ -1,3 +1,8 @@
+import 'dotenv/config'
+import sessionsRouter from "./routes/sessions.router.js";
+import cookieParser from 'cookie-parser'
+import passport from 'passport'
+import { initializePassport } from './config/passport.config.js'
 import express from "express";
 import handlebars from "express-handlebars";
 import { createServer } from "http";
@@ -26,10 +31,15 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser())
+
+initializePassport()
+app.use(passport.initialize())
 
 app.use("/", viewsRouter);
 app.use("/api/products", productsRouter);
 app.use("/api/carts", cartsRouter);
+app.use("/api/sessions", sessionsRouter);
 
 const httpServer = createServer(app);
 export const socketServer = new Server(httpServer);
