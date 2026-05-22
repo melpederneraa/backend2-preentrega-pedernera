@@ -1,43 +1,100 @@
-# Backend Ecommerce - Entrega Final
+# Backend 2 - Preentrega Final
 
-## Requisitos
-- Node.js 22+
-- MongoDB Community o MongoDB Atlas
+## Alumna
+Melina Pedernera
+
+## Descripción del proyecto
+
+Proyecto backend desarrollado con Node.js y Express para un ecommerce, implementando autenticación mediante JWT y Passport.
+
+El sistema permite:
+
+- Registro de usuarios
+- Login de usuarios
+- Autenticación mediante JWT
+- Protección de rutas
+- Manejo de cookies
+- Validación de usuarios autenticados
+
+## Tecnologías utilizadas
+
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Mongoose
+- Passport
+- Passport-JWT
+- bcrypt
+- JWT
+- Handlebars
+- Socket.io
+
+## Estructura del proyecto
+
+```txt
+src/
+├── config/
+├── models/
+├── routes/
+├── utils/
+├── public/
+├── views/
+└── app.js
+```
+
+## Variables de entorno
+
+Crear un archivo `.env` en la raíz del proyecto:
+
+```env
+MONGO_URI=
+JWT_SECRET=
+PORT=8080
+```
 
 ## Instalación
+
+Instalar dependencias:
+
 ```bash
 npm install
+```
+
+Ejecutar el proyecto:
+
+```bash
 npm run dev
 ```
 
-## Mongo local
-Este proyecto intenta conectarse primero a `process.env.MONGO_URL` y, si no existe, usa:
+## Endpoints principales
 
-`mongodb://127.0.0.1:27017/ecommerce`
+### Register
 
-## Rutas principales
-- `GET /api/products`
-- `GET /api/products/:pid`
-- `POST /api/products`
-- `PUT /api/products/:pid`
-- `DELETE /api/products/:pid`
-- `POST /api/carts`
-- `GET /api/carts/:cid`
-- `POST /api/carts/:cid/products/:pid`
-- `DELETE /api/carts/:cid/products/:pid`
-- `PUT /api/carts/:cid`
-- `PUT /api/carts/:cid/products/:pid`
-- `DELETE /api/carts/:cid`
-- `GET /products`
-- `GET /products/:pid`
-- `GET /carts/:cid`
-- `GET /realtimeproducts`
+POST `/api/sessions/register`
 
-## Query params de productos
-Ejemplo:
-`/api/products?limit=5&page=1&sort=asc&query=ropa`
+### Login
 
-- `limit`: cantidad por página
-- `page`: página a traer
-- `sort`: `asc` o `desc` por precio
-- `query`: categoría o disponibilidad (`true` / `false`)
+POST `/api/sessions/login`
+
+### Current
+
+GET `/api/sessions/current`
+
+### Logout
+
+POST `/api/sessions/logout`
+
+## Funcionalidades implementadas
+
+- Hash de contraseñas con bcrypt
+- JWT con expiración
+- Cookies httpOnly
+- Passport JWT Strategy
+- Middleware de autenticación
+- Validación de usuarios duplicados
+- MongoDB Atlas como base de datos
+
+## Autor
+
+Melina Pedernera
+Coderhouse Backend 2
